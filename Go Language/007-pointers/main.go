@@ -5,6 +5,7 @@ import (
 )
 
 var shippingDays = 30
+var shippingDaysPtr = new(int)
 
 type shipper struct {
 	name string
@@ -25,6 +26,10 @@ func main() {
 	shipperUpdates(&shipper)
 	fmt.Println("shipper.id after shipperUpdates call", shipper.id)
 	fmt.Println("shipper.name after shipperUpdates call", shipper.name)
+
+	*shippingDaysPtr = 55
+	shippingDaysAdjustmentsPtr(shippingDaysPtr)
+	fmt.Println("shippingDaysPtr after shippingDaysAdjustmentsPtr call", *shippingDaysPtr)
 }
 
 func shippingDaysAdjustments(shippingDays int) {

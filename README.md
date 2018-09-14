@@ -48,4 +48,4 @@ go-mysql-rest-api
 1. git clone [git@github.com:boantp/go-mysql-rest-api.git](git@github.com:boantp/go-mysql-rest-api.git)
 2. install docker and docker-compose 
 3. open terminal and run docker-compose build (service are build), docker-compose up(builds, recreates, attaches to container for service), docker-compose down (stop containers and remove containers etc) See [Docker Documentation](https://docs.docker.com/compose/reference/build/) on how to use it.
-4. now you ready for http:localhost:3000/
+4. now your server ready for http:localhost:3000/

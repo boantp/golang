@@ -1,15 +1,12 @@
 # go-mysql-rest-api
-REST API with [Apiary DOCS] (https://github.com/boantp/go-mysql-rest-api/blob/master/apiary.apib) 
+a set of APIs to be used by front-end engineers to develop an application that store and display tax amounts, Tech stack : Go, Docker-Compose, MySQL, HTML, CSS
 
-This API is a pretty basic implementation of an online(e-commerce) store.
-- You can perform basic CRUD(CREATE, READ, UPDATE and DELETE) operations
-- SEARCH on a predefined database of products 
-- Only Authenticated users can Add, Update and Delete products from database
-- Authentication is based on JWT(JSON web Tokens) Tokens
-- API is backed by a predefined Mongo DB database hosted on [mLab](https://mLab.com)
-- This API also lives on [Heroku](https://www.heroku.com) - https://gruesome-monster-22811.herokuapp.com/ 
+This API serve 3 routes at Order Collection [/order/{store_id}], Cart Collection [/cart], Tax Code Collection [/tax_code] .
+- You can perform fetch List Tax Code [GET] from Tax Code Collection
+- Add to cart or Create Tax Object Add Cart [POST] from Cart Collection
+- And can get/view the bill List All Order Item [GET] from Order Collection
 
-See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.
+See [API Documentation](https://github.com/boantp/go-mysql-rest-api/blob/master/apiary.apib) on how to use it.
 
 ## Directory Structure
 ```

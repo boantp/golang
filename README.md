@@ -4,26 +4,41 @@ a set of APIs to be used by front-end engineers to develop an application that s
 This API serve 3 routes at Order Collection [/order/{store_id}], Cart Collection [/cart], Tax Code Collection [/tax_code] .
 - You can perform fetch List Tax Code [GET] from Tax Code Collection
 - Add to cart or Create Tax Object Add Cart [POST] from Cart Collection
-- And can get/view the bill List All Order Item [GET] from Order Collection
+- And can get/view the bill List All Order Item [GET] from Order Collection, from here we use store_id=1 hardcode at GUI add cart
+so we can call [/order/1] to fetch my bill
+
+The frontend show some GUI for add cart / add tax object, status update add cart, view my bill
 
 See [API Documentation](https://github.com/boantp/go-mysql-rest-api/blob/master/apiary.apib) on how to use it.
 
 ## Directory Structure
 ```
-rest-and-go/
-    |- Godeps/             - Contains info about all dependencies of the project
-    |- store/              - Contains main API logic files 
-        |- controller.go  - Defines methods handling calls at various endpoints
-        |- model.go       - User and Product models
-        |- repository.go  - Methods interacting with the database
-        |- router.go      - Defines routes and endpoints
-    |- vendor/             - Dependency packages, necessary for deployment
-    |- .gitignore
-    |- LICENSE
-    |- Procfile             - Procfile for herkou deployment
-    |- README.md
-    |- dummyData.js         - Script to populate local mongodb with dummy data
-    |- main.go              - Entry point of the API
+go-mysql-rest-api
+    |--config                   - to initialize template and database
+        |--db.go                - for initialize mysql database connection
+        |--tpl.go               - for template view configuration
+    |--controllers              - to store package controllers
+        |--cart.go              - to handle Cart Collection [/cart]
+        |--order.go             - to handle Order Collection [/order/{store_id}]
+        |--tax_code.go          - to handle Tax Code Collection [/tax_code]
+        |--web.go               - to handle Web/Frontend for GUI add cart["/"], GUI view bill ["order_view/:store_id]
+    |--docker                   - Dockerfile for Golang at folder web, Dockerfile for MySQL at folder db
+        |--db
+            |--Dockerfile
+        |--web
+            |--Dockerfile
+    |--models                    - to store package models for object and mysql query
+        |--order_details.go      - for table order_details
+        |--orders.go             - for total amount, total tax amount, grand total object, and for table orders
+        |--tax_code.go           - for table tax_code
+    |--mysql_init                - init Table shopee
+        |--shopee.sql
+    |--templates                 - to store html file for golang *gohtml
+    |--apiary.apib               - json file docs from APIARY for API DOCS
+    |--database_design.png       - DB structure and explanation
+    |--docker-compose.yml        - for docker-compose service and config
+    |--main.go                   
+
   
 ```
 

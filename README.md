@@ -45,11 +45,9 @@ go-mysql-rest-api
 ## Setup
 
 **Steps**
-1. git clone git@github.com:boantp/go-mysql-rest-api.git
+1. git clone [git@github.com:boantp/go-mysql-rest-api.git](git@github.com:boantp/go-mysql-rest-api.git)
 2. install docker and docker-compose 
 3. open terminal and run docker-compose build (service are build), docker-compose up(builds, recreates, attaches to container for service), docker-compose down (stop containers and remove containers etc) See [Docker Documentation](https://docs.docker.com/compose/reference/build/) on how to use it.
-
-You can also follow the official [docs](https://golang.org/doc/install) of installation if you want to know the complete process.
 
 ### Project setup
 

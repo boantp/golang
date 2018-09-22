@@ -1,0 +1,1 @@
+SELECT a.restaurant_id, a.restaurant_name, a.restaurant_description, a.restaurant_address, a.restaurant_phone, a.restaurant_location, b.cuisines_id, b.cuisines_name, a.restaurant_latitude, a.restaurant_longitude, a.restaurant_image FROM restaurant AS a LEFT JOIN cuisines AS b ON a.`restaurant_cuisines_id` = b.`cuisines_id` WHERE a.`restaurant_id` = 1

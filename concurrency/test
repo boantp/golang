@@ -1,19 +1,18 @@
-// getCustomers calls the RPC method GetCustomers of CustomerServer
-func getCustomers(client pb.CustomerClient, filter *pb.CustomerFilter) {
-	// calling the streaming API
-	stream, err := client.GetCustomers(context.Background(), filter)
-	if err != nil {
-		log.Fatalf("Error on get customers: %v", err)
-	}
-	for {
-		// Receiving the stream of data
-		customer, err := stream.Recv()
-		if err == io.EOF {
-			break
+// CreateCustomer creates a new Customer
+func (s *server) CreateCustomer(ctx context.Context, in *pb.CustomerRequest) (*pb.CustomerResponse, error) {
+	if len(s.savedCustomers) != 0 {
+		i := 0
+		for _, customer := range s.savedCustomers {
+			if strings.Contains(customer.Name, in.Name) {
+				i++
+			}
 		}
-		if err != nil {
-			log.Fatalf("%v.GetCustomers(_) = _, %v", client, err)
+		if i == 0 {
+			s.savedCustomers = append(s.savedCustomers, in)
 		}
-		log.Printf("Customer: %v", customer)
+	} else {
+		s.savedCustomers = append(s.savedCustomers, in)
 	}
+	//s.savedCustomers = append(s.savedCustomers, in)
+	return &pb.CustomerResponse{Id: in.Id, Success: true}, nil
 }
